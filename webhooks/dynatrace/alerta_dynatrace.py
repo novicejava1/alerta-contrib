@@ -16,7 +16,7 @@ class DynatraceWebhook(WebhookBase):
             event = payload['ProblemTitle'],
             environment = 'Production',
             severity= 'critical',
-            #status = payload['State']
+            status = payload['State'].lower()
             service = services
             #group = 'Web Application',
             #value = payload['ProblemTitle'],
