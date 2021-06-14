@@ -12,7 +12,7 @@ class DynatraceWebhook(WebhookBase):
             event = payload['ProblemTitle'],
             environment='Development',
             severity='critical',
-            service = payload['ImpactedEntities'][1]['entity']
+            service = ['docker']
             #group = 'Web Application',
             #value = payload['ProblemTitle'],
             #text = 'High Alert',
