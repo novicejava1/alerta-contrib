@@ -10,6 +10,9 @@ class DynatraceWebhook(WebhookBase):
         services = []
         serviceValue = payload['ImpactedEntities'][1]['entity'].split('-')[0]
         services.append(serviceValue)
+        
+        tagsList = []
+        tagsList.append(payload['Tags'])
 
         return Alert(
             resource = payload['ProblemImpact'],
@@ -21,7 +24,7 @@ class DynatraceWebhook(WebhookBase):
             #group = 'Web Application',
             #value = payload['ProblemTitle'],
             #text = 'High Alert',
-            #tags = [payload['Tags']]
+            tags = tagsList
             #attributes = [],
         )
 
