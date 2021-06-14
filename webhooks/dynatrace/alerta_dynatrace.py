@@ -19,7 +19,7 @@ class DynatraceWebhook(WebhookBase):
             tags = payload['Tags'],
             attributes = [],
             origin='dynatrace',
-            raw_data=payload['Prob lem URL']
+            raw_data=payload['Problem URL']
         )
 
 
