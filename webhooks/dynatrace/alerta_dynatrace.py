@@ -7,7 +7,7 @@ class DynatraceWebhook(WebhookBase):
 
     def incoming(self, query_string, payload):
 
-        return Alerta(
+        return Alert(
             resource = data['ImpactedEntities'][0]['entity'],
             event = data['ProblemTitle'],
             environment='Development',
