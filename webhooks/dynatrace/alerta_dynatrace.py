@@ -8,15 +8,16 @@ class DynatraceWebhook(WebhookBase):
     def incoming(self, query_string, payload):
 
         return Alert(
-            resource = payload['ImpactedEntities'][0]['entity'],
+            resource = payload['ProblemImpact'],
             event = payload['ProblemTitle'],
-            environment='Development',
-            severity='critical',
-            service = ['docker']
+            environment = 'Production',
+            severity= 'critical',
+            status = payload['State']
+            service = payload['ImpactedEntity']
             #group = 'Web Application',
             #value = payload['ProblemTitle'],
             #text = 'High Alert',
-            #tags = payload['Tags']
+            #tags = [payload['Tags']]
             #attributes = [],
         )
 
