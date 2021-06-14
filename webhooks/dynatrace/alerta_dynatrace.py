@@ -11,12 +11,12 @@ class DynatraceWebhook(WebhookBase):
             resource = payload['ImpactedEntities'][0]['entity'],
             event = payload['ProblemTitle'],
             environment='Development',
-            severity='critical',
-            service = payload['ImpactedEntities'][1]['entity'],
-            group = 'Web Application',
-            value = payload['ProblemTitle'],
-            text = 'High Alert',
-            tags = payload['Tags']
+            severity='critical'
+            #service = payload['ImpactedEntities'][1]['entity'],
+            #group = 'Web Application',
+            #value = payload['ProblemTitle'],
+            #text = 'High Alert',
+            #tags = payload['Tags']
             #attributes = [],
         )
 
