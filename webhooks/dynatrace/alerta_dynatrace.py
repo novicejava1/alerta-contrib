@@ -25,18 +25,18 @@ class DynatraceWebhook(WebhookBase):
         raw_data = data['Problem URL']
 
         return Alerta(
-            resource = data['ImpactedEntities'][0]['entity']
-            event = data['ProblemTitle']
+            resource = data['ImpactedEntities'][0]['entity'],
+            event = data['ProblemTitle'],
             environment='Development',
-            severity='critical'
-            service = data['ImpactedEntities'][1]['entity']
-            group = 'Web Application'
-            value = data['ProblemTitle']
-            text = 'High Alert'
-            tags = data['Tags']
-            attributes = []
-            origin='dynatrace'
-            raw_data=data['Problem URL']
+            severity='critical',
+            service = data['ImpactedEntities'][1]['entity'],
+            group = 'Web Application',
+            value = data['ProblemTitle'],
+            text = 'High Alert',
+            tags = data['Tags'],
+            attributes = [],
+            origin='dynatrace',
+            raw_data=data['Prob lem URL']
         )
 
 
