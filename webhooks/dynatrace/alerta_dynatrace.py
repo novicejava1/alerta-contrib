@@ -13,7 +13,7 @@ class DynatraceWebhook(WebhookBase):
             environment = 'Production',
             severity= 'critical',
             #status = payload['State']
-            service = payload['ImpactedEntities'][1]['entity'].split('_')[0]
+            service = payload['ImpactedEntities'][1]['entity'].split('-')[0]
             #group = 'Web Application',
             #value = payload['ProblemTitle'],
             #text = 'High Alert',
