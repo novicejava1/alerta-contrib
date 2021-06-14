@@ -17,7 +17,7 @@ class DynatraceWebhook(WebhookBase):
             environment = 'Production',
             severity= 'critical',
             #status = payload['State']
-            service = services
+            service = ['services']
             #group = 'Web Application',
             #value = payload['ProblemTitle'],
             #text = 'High Alert',
