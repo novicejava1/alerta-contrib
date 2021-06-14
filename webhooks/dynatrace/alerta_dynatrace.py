@@ -7,7 +7,9 @@ class DynatraceWebhook(WebhookBase):
 
     def incoming(self, query_string, payload):
 
+        services = []
         serviceValue = payload['ImpactedEntities'][1]['entity'].split('-')[0]
+        services.append(serviceValue)
 
         return Alert(
             resource = payload['ProblemImpact'],
@@ -15,7 +17,7 @@ class DynatraceWebhook(WebhookBase):
             environment = 'Production',
             severity= 'critical',
             #status = payload['State']
-            service = list(serviceValue)
+            service = services
             #group = 'Web Application',
             #value = payload['ProblemTitle'],
             #text = 'High Alert',
