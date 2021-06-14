@@ -18,7 +18,6 @@ class DynatraceWebhook(WebhookBase):
             text = 'High Alert',
             tags = payload['Tags'],
             attributes = [],
-            origin='dynatrace'
         )
 
 
