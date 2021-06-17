@@ -11,11 +11,15 @@ class KibanaWebhook(WebhookBase):
         serviceValue = payload['Service']
         services.append(serviceValue)
 
+        severityValue = payload['Severity']
+        if severityValue == "1":
+            sev = 'critical'
+
         return Alert(
             resource = payload['Resource'],
             event = payload['Trigger'],
             environment = payload['Environment'],
-            severity= payload['Severity'],
+            severity= sev,
             status = payload['Status'],
             service = services,
             text = payload['Text']
