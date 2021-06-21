@@ -8,12 +8,12 @@ class ChronografWebhook(WebhookBase):
     def incoming(self, query_string, payload):
 
         return Alert(
-            resource = payload['Resource'],
-            event = payload['Event'],
-            environment = payload['Environment'],
-            severity= payload['Severity'],
-            status = payload['Status'],
-            service = payload['Service']
+            resource = payload['id'],
+            event = payload['message'],
+            environment = 'Production',
+            severity= 'critical',
+            status = 'open',
+            service = ['Resouces']
         )
 
 
