@@ -8,8 +8,12 @@ class DynatraceWebhook(WebhookBase):
     def incoming(self, query_string, payload):
 
         services = []
-        serviceValue = payload['ImpactedEntities'][1]['entity'].split('-')[0]
-        services.append(serviceValue)
+        #serviceValue = payload['ImpactedEntities'][1]['entity'].split('-')[0]
+        #services.append(serviceValue)
+
+        for entities in payload['ImpactedEntities']:
+            serviceValue = entities['name']
+            services.append(serviceValue)
         
         tagsList = []
         tagsList.append(payload['Tags'])
