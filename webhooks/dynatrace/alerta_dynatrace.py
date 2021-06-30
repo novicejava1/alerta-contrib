@@ -27,7 +27,7 @@ class DynatraceWebhook(WebhookBase):
             service = services,
             #group = 'Web Application',
             value = payload['ProblemTitle'],
-            #text = 'High Alert',
+            text = payload['ProblemURL'],
             tags = tagsList,
             #attributes = [],
             raw_data=json.dumps(payload, indent=4)
