@@ -20,13 +20,13 @@ class DynatraceWebhook(WebhookBase):
 
         return Alert(
             resource = payload['ProblemImpact'],
-            event = payload['ProblemTitle'],
+            event = payload['ProblemID'],
             environment = 'Production',
             severity= 'critical',
             status = payload['State'].lower(),
             service = services,
             #group = 'Web Application',
-            #value = payload['ProblemTitle'],
+            value = payload['ProblemTitle'],
             #text = 'High Alert',
             tags = tagsList,
             #attributes = [],
