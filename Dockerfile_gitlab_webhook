@@ -1,0 +1,14 @@
+FROM alerta/alerta-web
+
+#RUN /venv/bin/pip install \
+#    git+https://github.com/novicejava1/alerta-contrib.git#subdirectory=webhooks/dynatrace
+#RUN /venv/bin/pip install \
+#    git+https://github.com/novicejava1/alerta-contrib.git#subdirectory=webhooks/kibana
+
+#COPY ./webhooks/dynatrace /app/dynatrace/
+#COPY ./webhooks/kibana/ /app/kibana/
+COPY ./webhooks /app/
+
+RUN /venv/bin/pip install /app/dynatrace/
+RUN /venv/bin/pip install /app/kibana/
+RUN /venv/bin/pip install /app/chronograf/
