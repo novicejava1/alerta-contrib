@@ -124,7 +124,8 @@ class SendConnectorCardMessage(PluginBase):
             if MS_TEAMS_PAYLOAD:
                 # Use requests.post to send raw json message card
                 LOG.debug("MS Teams sending(json payload) POST to %s", MS_TEAMS_WEBHOOK_URL)
-                r = requests.post(MS_TEAMS_WEBHOOK_URL, data=card_json, timeout=MS_TEAMS_DEFAULT_TIMEOUT)
+                headers = {'Content-type': 'application/json'}
+                r = requests.post(MS_TEAMS_WEBHOOK_URL, data=card_json, timeout=MS_TEAMS_DEFAULT_TIMEOUT, headers=headers)
                 LOG.debug('MS Teams response: %s / %s' % (r.status_code, r.text))
             else:
                 # Use pymsteams to send card
